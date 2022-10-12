@@ -1,7 +1,7 @@
 <?php
 
 //load file cầu nối 
-require_once __DIR__ . '/../system/bridge.php';
+require_once __DIR__ . '/../System/bridge.php';
 
 //loading autoload
 require_once __DIR__ . '/../vendor/autoload.php';
