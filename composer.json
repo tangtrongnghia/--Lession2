@@ -1,0 +1,10 @@
+{
+    "name": "fw/mvc",
+    "description": "MVC Framework",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "System\\Core\\": "System/Core/"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+RewriteEngine On
+
+#File
+RewriteCond %{REQUEST_FILENAME} !-f
+
+#Thu Muc
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?qQuery=$1&%{Query_STRING}
