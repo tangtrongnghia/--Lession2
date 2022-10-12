@@ -37,7 +37,7 @@ if (!function_exists('pages')) {
         $html = '<ul class="pagination pagination-sm m-0 justify-content-center">';
 
         if ($page > 1) {
-            $html .= '<li class="page-item"><a class="page-link" href="' . fillerQuery(['pages' => 1]) . '?page=1">First</a></li>';
+            $html .= '<li class="page-item"><a class="page-link" href="' . fillerQuery(['pages' => 1]) . '">First</a></li>';
             $html .= '<li class="page-item"><a class="page-link" href="' . fillerQuery(['pages' => $page - 1]) . '">Previous</a></li>';
         }
 
