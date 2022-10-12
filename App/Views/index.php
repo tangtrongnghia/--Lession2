@@ -16,7 +16,7 @@
             <nav class="row navbar navbar-expand-lg navbar-light bg-white mb-5">
                 <a class="navbar-brand btn btn-primary text-white" href="#">Products</a>
                 <a class="navbar-brand btn" href="#">Categories</a>
-                <img class="ml-auto" width="300" src="/img/logo.jpg" alt="">
+                <img class="ml-auto" width="300" src="./img/logo.jpg" alt="">
             </nav>
             <section class="pb-4">
                 <div class="form-outline mb-4">
@@ -46,7 +46,7 @@
                                 <td><?= $v['id'] ?></td>
                                 <td><?= $v['name'] ?></td>
                                 <td><?= $v['category'] ?></td>
-                                <td><a href="/<?= $v['thumb'] ?>" target="_blank"><img src="/<?= $v['thumb'] ?>" alt="" style="width: 30px;"></a></td>
+                                <td><a href="./<?= $v['thumb'] ?>" target="_blank"><img src="./<?= $v['thumb'] ?>" alt="" style="width: 30px;"></a></td>
                                 <td>
                                     <a href="javascript:void(0)" data-toggle="modal" data-target="#form-modal" onclick="showFormEdit(<?= $v['id'] ?>)" title="Sửa"><i class="fa-solid fa-pen-to-square"></i></a>
                                     <a href="javascript:void(0)" data-toggle="modal" data-target="#confirm" onclick="showConfirm(<?= $v['id'] ?>, 'delete')" title="Xóa"><i class="fa-solid fa-circle-minus"></i></a>
@@ -71,6 +71,6 @@
 <script>
     var products = <?=json_encode($products)?>;
 </script>
-<script src="/js/main.js"></script>
+<script src="./js/main.js"></script>
 
 </html>

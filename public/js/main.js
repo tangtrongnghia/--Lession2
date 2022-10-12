@@ -7,7 +7,7 @@ $('#uploadFile').change(function () {
 
     $.ajax({
         type: "POST",
-        url: "/upload",
+        url: "./upload",
         data: formData,
         dataType: "JSON",
         cache: false,
@@ -18,7 +18,7 @@ $('#uploadFile').change(function () {
                 $('#message-file').text(result.message).removeClass('d-none');
             } else {
                 $('#thumb').val(result.url);
-                $('#img').attr('src', '/' + result.url).removeClass('d-none');
+                $('#img').attr('src', './' + result.url).removeClass('d-none');
             }
         }
     });
@@ -30,28 +30,9 @@ $('#add').click(function () {
     $('#form-title').text('Add a new product');
     $('#name, #thumb').val('');
     $('#img').attr('class', 'd-none');
-    $('#send').attr('onclick', `sendForm('/add')`)
+    $('#send').attr('onclick', `sendForm('./add')`)
     $('.text-danger').addClass('d-none');
 });
-
-function create() {
-    var name = $('#name').val();
-    var cateId = $('#category').val();
-    var thumb = $('#thumb').val();
-    $('.text-danger').addClass('d-none');
-
-    $.ajax({
-        type: "post",
-        url: "/add",
-        data: { name: name, categoryId: cateId, thumb: thumb },
-        dataType: "JSON",
-        success: function (response) {
-            response.error
-                ? $('#message-' + response.input).text(response.message).removeClass('d-none')
-                : location.reload();
-        }
-    });
-}
 
 function sendForm(url) {
     var name = $('#name').val();
@@ -78,7 +59,7 @@ function showDetail(productId) {
 
     $('#detail-name').text(result.name + ' - #' + result.id);
     $('#detail-category').text('Category: ' + result.category);
-    $('#detail-img').attr('src', '/' + result.thumb);
+    $('#detail-img').attr('src', './' + result.thumb);
 }
 
 function showConfirm(productId, type = 'copy') {
@@ -104,7 +85,7 @@ function copyRow(productId) {
 
     $.ajax({
         type: "POST",
-        url: "/copy",
+        url: "./copy",
         data: {name: result.name, categoryId: result.category_id, thumb: result.thumb},
         dataType: "JSON",
         success: function (response) {
@@ -116,7 +97,7 @@ function copyRow(productId) {
 function deleteRow(productId) {
     $.ajax({
         type: "POST",
-        url: "/delete",
+        url: "./delete",
         data: {id: productId},
         dataType: "JSON",
         success: function (response) {
@@ -139,7 +120,7 @@ function showFormEdit(productId) {
     $('#form-title').text('Product update');
     $('#name').val(result.name);
     $('#thumb').val(result.thumb);
-    $('#img').attr('src', '/' + result.thumb).removeClass('d-none');
-    $('#send').attr('onclick', `sendForm('/update/${productId}')`);
+    $('#img').attr('src', './' + result.thumb).removeClass('d-none');
+    $('#send').attr('onclick', `sendForm('./update/${productId}')`);
     $('.text-danger').addClass('d-none');
 }
